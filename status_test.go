@@ -41,14 +41,14 @@ func TestStatusMethods(t *testing.T) {
 		if redirect := tt.Status.IsRedirect(); redirect != tt.redirect {
 			t.Errorf("Status(%q).Redirect: expected %v, got %v", tt.Status, tt.redirect, redirect)
 		}
-		if error := tt.Status.IsError(); error != tt.error {
-			t.Errorf("Status(%q).IsError: expected %v, got %v", tt.Status, tt.error, error)
+		if err := tt.Status.IsError(); err != tt.error {
+			t.Errorf("Status(%q).IsError: expected %v, got %v", tt.Status, tt.error, err)
 		}
-		if error := tt.Status.IsClientError(); error != tt.clienterr {
-			t.Errorf("Status(%q).IsError: expected %v, got %v", tt.Status, tt.clienterr, error)
+		if err := tt.Status.IsClientError(); err != tt.clienterr {
+			t.Errorf("Status(%q).IsError: expected %v, got %v", tt.Status, tt.clienterr, err)
 		}
-		if error := tt.Status.IsServerError(); error != tt.servererr {
-			t.Errorf("Status(%q).IsError: expected %v, got %v", tt.Status, tt.servererr, error)
+		if err := tt.Status.IsServerError(); err != tt.servererr {
+			t.Errorf("Status(%q).IsError: expected %v, got %v", tt.Status, tt.servererr, err)
 		}
 	}
 }

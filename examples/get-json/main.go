@@ -5,6 +5,8 @@ import (
 	"log"
 
 	"github.com/pkg/requests"
+	"bytes"
+	"encoding/json"
 )
 
 func main() {
@@ -17,6 +19,14 @@ func main() {
 	check(err)
 
 	fmt.Printf("%#v\n", m)
+
+	j , _ := json.Marshal(m)
+	resp, err = client.Post("https://jsonplaceholder.typicode.com/posts/", bytes.NewReader(j))
+	check(err)
+	err = resp.JSON(&m)
+	check(err)
+
+	fmt.Println(m)
 }
 
 func check(err error) {

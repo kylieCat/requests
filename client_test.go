@@ -162,3 +162,77 @@ func TestNewHTTPRequest(t *testing.T) {
 		}
 	}
 }
+
+func TestQueryParam(t *testing.T) {
+	tests := []struct {
+		Request
+		want http.Request
+	}{{
+		Request{
+			Method: "GET",
+			URL:    "https://example.com",
+			QueryParams: url.Values{"foo": {"baz", "bar"}},
+		},
+		http.Request{
+			Method: "GET",
+			URL: &url.URL{
+				Scheme: "https",
+				Host:   "example.com",
+				RawQuery: "foo=baz&foo=bar",
+			},
+			Host:       "example.com",
+			Proto:      "HTTP/1.1",
+			ProtoMajor: 1,
+			ProtoMinor: 1,
+		},
+	}}
+
+	for i, tc := range tests {
+		got, err := newHttpRequest(&tc.Request)
+		if err != nil {
+			t.Errorf("%d: %v: %v", i, tc.Request, err)
+			continue
+		}
+
+		if !reflect.DeepEqual(got, &tc.want) {
+			t.Errorf("%d: %v: got:\n%+v\n, want:\n%+v", i, tc.Request, got, &tc.want)
+		}
+	}
+}
+
+func TestFragment(t *testing.T) {
+	tests := []struct {
+		Request
+		want http.Request
+	}{{
+		Request{
+			Method: "GET",
+			URL:    "https://example.com",
+			Fragment: "post-id",
+		},
+		http.Request{
+			Method: "GET",
+			URL: &url.URL{
+				Scheme: "https",
+				Host:   "example.com",
+				Fragment: "post-id",
+			},
+			Host:       "example.com",
+			Proto:      "HTTP/1.1",
+			ProtoMajor: 1,
+			ProtoMinor: 1,
+		},
+	}}
+
+	for i, tc := range tests {
+		got, err := newHttpRequest(&tc.Request)
+		if err != nil {
+			t.Errorf("%d: %v: %v", i, tc.Request, err)
+			continue
+		}
+
+		if !reflect.DeepEqual(got, &tc.want) {
+			t.Errorf("%d: %v: got:\n%+v\n, want:\n%+v", i, tc.Request, got, &tc.want)
+		}
+	}
+}
