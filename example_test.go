@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/pkg/requests"
+	"github.com/kylie-a/requests"
 )
 
 func ExampleClient_Get() {

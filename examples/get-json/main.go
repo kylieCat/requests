@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/pkg/requests"
+	"github.com/kylie-a/requests"
 	"bytes"
 	"encoding/json"
 )
