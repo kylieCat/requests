@@ -60,7 +60,7 @@ func (c *Client) Get(url string, options ...RequestOptionFunc) (*Response, error
 
 func (c *Client) Delete(url string, options ...RequestOptionFunc) (*Response, error) {
 	req := Request{
-		Method: http.MethodGet,
+		Method: http.MethodDelete,
 		URL:    url,
 	}
 	if err := applyOptions(&req, options...); err != nil {
