@@ -44,6 +44,15 @@ func WithBasicAuth(token string) RequestOptionFunc {
 	}
 }
 
+// WithBearerToken attaches an Authorization header to the `Request` struct that
+// uses a bearer token.
+func WithBearerToken(token string) RequestOptionFunc {
+	return func(request *Request) error {
+		request.Headers = append(request.Headers, Header{Key:"Authorization",  Values: []string{"Bearer " + token}})
+		return nil
+	}
+}
+
 // Request is a HTTP request.
 type Request struct {
 	Method  string
