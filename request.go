@@ -1,9 +1,9 @@
 package requests
 
 import (
-	"net/url"
-	"io"
 	"bytes"
+	"io"
+	"net/url"
 )
 
 type RequestOptionFunc func(*Request) error
@@ -39,7 +39,7 @@ func WithQueryParams(params url.Values) RequestOptionFunc {
 // uses basic auth.
 func WithBasicAuth(token string) RequestOptionFunc {
 	return func(request *Request) error {
-		request.Headers = append(request.Headers, Header{Key:"Authorization",  Values: []string{"Basic " + token}})
+		request.Headers = append(request.Headers, Header{Key: "Authorization", Values: []string{"Basic " + token}})
 		return nil
 	}
 }
@@ -48,7 +48,7 @@ func WithBasicAuth(token string) RequestOptionFunc {
 // uses a bearer token.
 func WithBearerToken(token string) RequestOptionFunc {
 	return func(request *Request) error {
-		request.Headers = append(request.Headers, Header{Key:"Authorization",  Values: []string{"Bearer " + token}})
+		request.Headers = append(request.Headers, Header{Key: "Authorization", Values: []string{"Bearer " + token}})
 		return nil
 	}
 }

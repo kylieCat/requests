@@ -4,6 +4,7 @@ import (
 	"io"
 	"net/http"
 	"net/http/cookiejar"
+
 	"github.com/pkg/errors"
 )
 
@@ -12,7 +13,7 @@ type HTTPClient interface {
 }
 
 func newDefaultClient() *http.Client {
-	c :=http.DefaultClient
+	c := http.DefaultClient
 	jar, _ := cookiejar.New(new(cookiejar.Options))
 	c.Jar = jar
 	c.CheckRedirect = func(req *http.Request, via []*http.Request) error {

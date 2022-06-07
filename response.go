@@ -1,10 +1,10 @@
 package requests
 
 import (
-	"strings"
-	"io"
 	"encoding/json"
+	"io"
 	"io/ioutil"
+	"strings"
 )
 
 // Response is a HTTP response.
@@ -35,7 +35,7 @@ func (r *Response) Header(key string) string {
 
 type Body struct {
 	io.ReadCloser
-	json *json.Decoder
+	json    *json.Decoder
 	content string
 }
 

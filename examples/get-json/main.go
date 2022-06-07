@@ -1,16 +1,16 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"log"
 
-	"github.com/kylie-a/requests"
-	"bytes"
-	"encoding/json"
+	"github.com/kyliecat/requests"
 )
 
 func main() {
-	var client requests.Client
+	client := requests.NewClient()
 	resp, err := client.Get("https://httpbin.org/get")
 	check(err)
 
@@ -20,7 +20,7 @@ func main() {
 
 	fmt.Printf("%#v\n", m)
 
-	j , _ := json.Marshal(m)
+	j, _ := json.Marshal(m)
 	resp, err = client.Post("https://jsonplaceholder.typicode.com/posts/", bytes.NewReader(j))
 	check(err)
 	err = resp.JSON(&m)

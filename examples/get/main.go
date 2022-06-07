@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/kylie-a/requests"
+	"github.com/kyliecat/requests"
 )
 
 func main() {
-	var client requests.Client
+	client := requests.NewClient()
 	resp, err := client.Get("https://httpbin.org/get")
 	if err != nil {
 		log.Fatalf("%+v", err)
