@@ -1,4 +1,4 @@
-module github/com/kyliecat/requests
+module github.com/kyliecat/requests
 
 go 1.17
 
