@@ -117,6 +117,18 @@ func (c *Client) Put(url string, body io.Reader, options ...RequestOptionFunc) (
 	return c.do(&req)
 }
 
+func (c *Client) Patch(url string, body io.Reader, options ...RequestOptionFunc) (*Response, error) {
+	req := Request{
+		Method: http.MethodPatch,
+		URL:    url,
+		Body:   body,
+	}
+	if err := applyOptions(&req, options...); err != nil {
+		return nil, err
+	}
+	return c.do(&req)
+}
+
 func (c *Client) do(request *Request) (*Response, error) {
 	req, err := newHttpRequest(request)
 	if err != nil {

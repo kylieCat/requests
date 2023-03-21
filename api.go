@@ -31,3 +31,7 @@ func Post(url string, body io.Reader, options ...RequestOptionFunc) (*Response, 
 func Put(url string, body io.Reader, options ...RequestOptionFunc) (*Response, error) {
 	return c.Put(url, body, options...)
 }
+
+func Patch(url string, body io.Reader, options ...RequestOptionFunc) (*Response, error) {
+	return c.Patch(url, body, options...)
+}

@@ -1,0 +1,6 @@
+github.com/kylie-a/requests v1.0.0 h1:4sr9X2d1+9F8/a2A2eGVSBce0eS76SwN4tKLm6jYPkk=
+github.com/kylie-a/requests v1.0.0/go.mod h1:q3arF5loKYRa2+Noi4t8bxk3IAXHrMBctRatUz5iKcc=
+github.com/kyliecat/requests v0.0.0-20181115001146-f45f37f12ccd h1:BBQqqhpfCCBSP2hSxkjoeAKoeO+jd4ysR12VyIyf+fM=
+github.com/kyliecat/requests v0.0.0-20181115001146-f45f37f12ccd/go.mod h1:XD4k0SEyGM2zKt4zc4PQSuaV7V/ZOiNMDotCBJ0be+Q=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
